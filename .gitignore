@@ -1,0 +1,21 @@
+
+# Latex-kompilering
+*.out
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.spl
+main.synctex.gz
+_minted-main/
+
+# Python venvs
+.venvs/
+.venv/
+.env/
+
+# Garbage files
+__pycache__/
+
+# vscode settings
+.vscode/
