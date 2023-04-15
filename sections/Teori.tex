@@ -31,7 +31,15 @@ for mer informasjon om sensorer og koordinatsystemet til telefonen.
 For å måle inklinasjonen, trenger en kun å finne magnetfelt-styrken i horisontal-
 planet og i vertikal retning. Da blir formelen for inklinasjonen slik:
 \begin{equation}
-    \theta = \arctan
+    \theta = \arctan(\frac{-B_z}{B_H})
+\end{equation}
+Hvor $B_z$ er feltstyrken i z-retning, og $B_H$ er feltstyrken i horisontalplanet. 
+Minustegnet foran $B_z$ kommer av at $B_z$ vil være en negativ størrelse, men vi 
+ønsker en positiv vinkel for inklinasjonen. Når vi foretar målingene ved hjelp av 
+phyphox får vi derimot ikke feltstyrken i planet eksplisitt, men i komponentform i 
+x- og y-retning. Formelen vi kommer til å bruke blir dermed
+\begin{equation}
+    \theta
 \end{equation}
 
 \subsection{Hvordan måle deklinasjonen}
