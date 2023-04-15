@@ -54,5 +54,8 @@ For å finne vinkelen mellom referansepunktet og nord ser man på den rettvinkle
 Tangens til $\theta$ er gitt ved $\overline{CP_2} / \overline{AP_2}$.
 For å få riktig fortegn på vinkelen multipliseres det med $\text{sgn}(A_{\text{breddegrad}} - C_{\text{breddegrad}})$. Positiv vinkel blir da mot klokken sett ovenfra.
 \par
-For å regne ut avstandene ble python-biblioteket \textit{GeoPy} (\ref{geopy}) brukt.
+For å regne ut avstandene ble python-biblioteket \textit{GeoPy} (\cite{geopy}) brukt. Funksjonen \kode{geopy.distance.distance} bruker en ellipsoidisk model av jordkloden (default: WGS-84) for å finne den korteste avstanden langs overflaten mellom to punkter (geodetisk kurve). 
+ Denne funksjonen bruker \kode{Geodesic} fra biblioteket \kode{geographiclib} i bakgrunnen; en implementasjon av metoden gitt i Algorithms for geodesics (2013) \cite{Karney}. 
+
+
 
