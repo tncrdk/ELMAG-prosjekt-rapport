@@ -16,9 +16,18 @@
 \renewcommand*{\Authands}{ og }
 % \usepackage{minted}
 
+% FOR kodeblokk
+\usepackage{listings}
+\lstset{
+basicstyle=\ttfamily,
+breaklines = true,
+}
+\newcommand{\kode}[1]{\lstinline|#1|}
+
+
 % Vi kan også definere egne funksjoner
 \newcommand{\enhet}[1]{~\mathrm{#1}}  % Kommando for å enklere typesette enheter
-\newcommand{\dd}[2]{\frac{\mathrm{d}{#1}}{\mathrm{d}{#2}}} % i stedet for \frac{d}{d} 
+\newcommand{\deriv}[2]{\frac{\mathrm{d}{#1}}{\mathrm{d}{#2}}} % i stedet for \frac{d}{d} 
 \newcommand{\diff}[1]{\mathrm{d}{#1}}
 
 
@@ -26,3 +35,5 @@
 % Endrer fra "Preprint submitted to" til "Preprint forelagt"
 %\usepackage{etoolbox}
  %\makeatletter\patchcmd{\ps@pprintTitle}{Preprint submitted to}{Preprint forelagt}{}{}\makeatother
+
+\usepackage[table,xcdraw]{xcolor}
