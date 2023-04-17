@@ -72,24 +72,32 @@ hvor $\phi$ er vinkelen mellom referansepunktet og koordinatsystemet.
 
 \subsection{Posisjon Nidarosdomen, Tyholt}
 
-\subsection{Geopy}
+\subsection{Vinkel mellom referansepunkt og nord}
+
+For å finne vinkler på jordoverflaten brukes en ellipsoidisk modell av jorden.
+Vi har valgt å bruke WGS-84 (World Geodetic System) sin referanseellipsoide.
+Vinkelen mellom meridianen (linje fra geografisk nordpol til geografisk sørpol) gjennom målelokasjonen og 
+kurven fra målelokasjonen til referansepunktet kalles asimut og gis ofte symbolet $\alpha$ {https://naob.no/ordbok/asimut} (se firgur \ref{fig:inverse_problem}).
+Problemet man står ovenfor da er:
+\\
+
+Finn asimuten $\alpha_1$ gitt to punkter på jordoverflaten $(\varphi_1, \lambda_1, )$ og $(\varphi_2, \lambda_2)$, hvor $\varphi$ er breddegradene og $\lambda$ er lengdegradene. 
+\\
+
+Dette problemet blir kalt \textbf{Inverse Problem} i \textit{Algorithms for geodesics} (2013) \cite{Karney}. Karney presenterer en metode for å løse slike problemer. Python-biblioteket \textit{geographiclib} implementerer denne; funksjonen \kode{geodesic.Geodesic.WGS84.Inverse()} tar inn to punkter og løser for geodetisk avstand samt de to asimutene \cite{geographiclib} (se figur \ref{fig:inverse_problem}).
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{img/angle_north.pdf}
+    \includegraphics[width=0.75\textwidth]{img/angle_north.pdf}
     \caption{Koordinatene til $B$ og $C$ blir estimert ved hjelp av Google Maps. 
     Koordinatene til målelokasjonen $A$ ble målt ved hjelp av Phyphox.
-    $\theta_1$ og $\theta_2$ er vinklene hhv. vinkel mellom spiret på Nidarosdomen og nord, og mellom Tyholttårnet og nord. 
-    Disse regnes ut ved å finne lengden til linjestykkene $\overline{AP_1}, \overline{BP_1}$ og $\overline{AP_2}, \overline{CP_2}$}.
+    $\theta_1$ og $\theta_2$ er vinklene hhv. vinkel mellom spiret på Nidarosdomen og nord, og mellom Tyholttårnet og nord.}
     \label{fig:angle_north}
 \end{figure}
 
-For å finne vinkelen mellom referansepunktet og nord ser man på den rettvinklede trekanten med hjørner i målelokasjon, referansepunktet og et tredje punkt med samme lengdegrad som målelokasjonen og samme breddegrad som referansepunktet.
-Tangens til $\theta$ er gitt ved $\overline{CP_2} / \overline{AP_2}$.
-For å få riktig fortegn på vinkelen multipliseres det med $\text{sgn}(A_{\text{breddegrad}} - C_{\text{breddegrad}})$. Positiv vinkel blir da mot klokken sett ovenfra.
-\par
-For å regne ut avstandene ble python-biblioteket \textit{GeoPy} (\cite{geopy}) brukt. Funksjonen \kode{geopy.distance.distance} bruker en ellipsoidisk model av jordkloden (default: WGS-84) for å finne den korteste avstanden langs overflaten mellom to punkter (geodetisk kurve). 
- Denne funksjonen bruker \kode{Geodesic} fra biblioteket \kode{geographiclib} i bakgrunnen; en implementasjon av metoden gitt i Algorithms for geodesics (2013) \cite{Karney}. 
-
-
-
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\textwidth]{img/ellipsoidal_problem.pdf}
+    \caption{Vinkelen vi er ute etter er $\alpha_1$. Gitt to punkter på overflaten av den ellipsoidiske modellen av jordkloden gir algoritmen til Karney den geodetiske avstanden $s_{12}$ og de to asimutene $\alpha_1$ og $\alpha_2$.}
+    \label{fig:inverse_problem}
+\end{figure}
