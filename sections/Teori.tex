@@ -4,19 +4,16 @@ dipolorientert omtrent i flukt med rotasjonsaksen. Jordas magnetiske sørpol
 befinner seg i nærheten av jordas geografiske nordpol, og magnetisk nordpol 
 befinner seg i nærheten av geografisk sørpol. Presiseringen "i nærheten av" 
 er således viktig i forbindelse med dette prosjektet, ettersom dette gir 
-opphav til fenomentet deklinasjon. Nå befinner den magnetiske sørpolen seg 
-nemlig i det arktiske havet, og ikke ved den geografiske nordpolen. \cite{wandering_poles} Resultatet er at et magnetisk 
-kompass vil orientere seg mot nord i Canada, og ikke mot geografisk nord, 
-noe som kan forårsake problemer ved for eksempel navigasjon etter kompass. 
+opphav til fenomentet deklinasjon. Et kompass vil peke mot den magnetiske sørpolen og ikke mot den geografiske nordpolen.
 Denne misvisningen kalles deklinasjon og blir oppgitt som vinkelen mellom 
 geografisk nord og retningen på magnetfeltet. På grunn av asymmetrien til 
 de magnetiske polene i forhold til rotasjonsaksen, vil deklinasjonen 
 variere og være avhengig av posisjonen på jorda. \cite{World_magnetic_model}
 
-Et annet fenomen er inklinasjon som sier noe om hvor mye magnetfeltet peker 
-nedover. Ettersom magnetfeltlinjene ikke følger jordas overflate vil 
-magnetfeltet peke i mer eller mindre grad nedover mot bakken. Inklinasjonen 
-blir derfor oppgitt som den vertikale vinkelen mellom horisontalen og
+Et annet fenomen er inklinasjon som beskriver hvor mye magnetfeltet peker 
+nedover i forhold til horisontalplanet. Ettersom magnetfeltlinjene ikke følger jordas overflate vil 
+magnetfeltet peke nedover mot bakken. Inklinasjonen 
+blir derfor oppgitt som den vertikale vinkelen mellom tangentplanet til jorda og
 magnetfeltet.
 
 \subsection{Phyphox}
@@ -29,13 +26,12 @@ for mer informasjon om sensorer og koordinatsystemet til telefonen.
 
 \subsection{Hvordan måle inklinasjonen}
 For å måle inklinasjonen, trenger en kun å finne magnetfelt-styrken i horisontal-
-planet og i vertikal retning. Da blir formelen for inklinasjonen slik:
+planet og i vertikal retning. Da blir formelen for inklinasjonen 
 \begin{equation}
     \gamma = \arctan \frac{-B_z}{B_H}
 \end{equation}
-Hvor $B_z$ er feltstyrken i z-retning, og $B_H$ er feltstyrken i horisontalplanet. 
-Minustegnet foran $B_z$ kommer av at $B_z$ vil være en negativ størrelse, men man er ute etter 
-positiv vinkel for inklinasjonen. Når en foretar målingene ved hjelp av 
+hvor $B_z$ er feltstyrken i z-retning, og $B_H$ er feltstyrken i horisontalplanet. 
+Minustegnet foran $B_z$ kommer av at $B_z$ vil være en negativ størrelse, mens inklinasjon blir oppgitt som en positiv størrelse. Når en foretar målingene ved hjelp av 
 phyphox får man derimot ikke feltstyrken i planet eksplisitt, men i komponentform i 
 x- og y-retning. Formelen som kommer til å brukes blir dermed
 \begin{equation}
@@ -44,8 +40,8 @@ x- og y-retning. Formelen som kommer til å brukes blir dermed
 hvor $B_x$ og $B_y$ er henholdsvis magnetfeltstyrken i x- og y-retning.
 
 \subsection{Hvordan måle deklinasjonen}
-For å finne ut deklinasjonen kreves det at man vet hvor både magnetisk sør og 
-geografisk nord er, for så å kunne regne ut vinkelen mellom dem. For å oppnå dette, 
+For å finne ut deklinasjonen kreves det at man vet hvor både magnetisk sørpol og 
+geografisk nordpol er, for så å kunne regne ut vinkelen mellom dem. For å oppnå dette 
 kan det benyttes et mellomsteg, et fast referansepunkt, som man relaterer både 
 magnetfeltet og geografisk nord til. Hvis man så finner vinkelen mellom magnetfeltet 
 og referansepunktet, og geografisk nord og referansepunktet, kan deklinasjonen 
@@ -56,7 +52,7 @@ regnes ut basert på dette. Gitt vinklene ovenfor blir deklinasjonen
 hvor $\beta$ er vinkelen mellom referansepunktet og magnetfeltet, og $\theta$ er 
 vinkelen mellom referansepunktet og geografisk nord.
 
-\subsubsection{Vinkel mellom referansepunkt og magnetfelt}
+\subsubsection{Vinkel mellom referansepunkt og magnetfelt, burde kanskje skrives om}
 Vinkelen mellom referansepunktet og magnetfeltet kan bli funnet ved å sette opp 
 telefonen sitt koordinatsystem slik at vinkelen mellom det og referansepunktet er 
 kjent når en tar målingene. Gitt dette oppsettet blir vinkelen mellom magnetfeltet 
@@ -68,14 +64,14 @@ og dermed mellom referansepunktet og magnetfeltet
 \begin{equation}
     \beta = \psi - \phi = \psi - \arctan \frac{B_y}{B_x}
 \end{equation}
-hvor $\phi$ er vinkelen mellom referansepunktet og koordinatsystemet.
+hvor $\psi$ er vinkelen mellom referansepunktet og koordinatsystemet.
 
 \subsubsection{Posisjon Nidarosdomen, Tyholt}
 
 \subsubsection{Vinkel mellom referansepunkt og nord}
 
 For å finne vinkler på jordoverflaten brukes en ellipsoidisk modell av jorden.
-Vi har valgt å bruke WGS-84 (World Geodetic System) sin referanseellipsoide.
+WGS-84 (World Geodetic System) sin referanseellipsoide blir brukt i denne rapporten.
 Vinkelen mellom meridianen (linje fra geografisk nordpol til geografisk sørpol) gjennom målelokasjonen og 
 kurven fra målelokasjonen til referansepunktet kalles asimut og gis ofte symbolet $\alpha$ {https://naob.no/ordbok/asimut} (se figur \ref{fig:inverse_problem}).
 Problemet man står ovenfor da er:
