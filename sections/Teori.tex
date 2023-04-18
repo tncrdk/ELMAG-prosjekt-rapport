@@ -23,9 +23,8 @@ magnetfeltet.
 Phyphox er en app man kan laste ned på telefonen sin, som lar brukeren 
 bruke telefonen sine sensorer til å foreta ulike målinger. Deriblant finnes 
 det et magnetometer som lar en måle magnetfelt-styrken langs alle 
-koordinataksene til telefonen, i tillegg til absolutt feltstyrke. Se 
-\hyperlink{https://phyphox.org/sensors/}{https://phyphox.org/sensors/}
-for mer informasjon om sensorer og koordinatsystemet til telefonen.
+koordinataksene til telefonen, i tillegg til absolutt feltstyrke. 
+Se https://phyphox.org/ \cite{phyphox} for mer informasjon om sensorer og koordinatsystemet til telefonen.
 
 \subsection{Hvordan måle inklinasjonen}
 For å måle inklinasjonen, trenger en kun å finne magnetfelt-styrken i horisontal-
@@ -77,27 +76,27 @@ hvor $\phi$ er vinkelen mellom referansepunktet og koordinatsystemet.
 For å finne vinkler på jordoverflaten brukes en ellipsoidisk modell av jorden.
 Vi har valgt å bruke WGS-84 (World Geodetic System) sin referanseellipsoide.
 Vinkelen mellom meridianen (linje fra geografisk nordpol til geografisk sørpol) gjennom målelokasjonen og 
-kurven fra målelokasjonen til referansepunktet kalles asimut og gis ofte symbolet $\alpha$ {https://naob.no/ordbok/asimut} (se figur \ref{fig:inverse_problem}).
+kurven fra målelokasjonen til referansepunktet kalles asimut \cite{asimut} og gis ofte symbolet $\alpha$ (se figur \ref{fig:inverse_problem}).
 Problemet man står ovenfor da er:
 \\
 
 Finn asimuten $\alpha_1$ gitt to punkter på jordoverflaten $(\varphi_1, \lambda_1, )$ og $(\varphi_2, \lambda_2)$, hvor $\varphi$ er breddegradene og $\lambda$ er lengdegradene. 
 \\
 
-Dette problemet blir kalt \textbf{Inverse Problem} i \textit{Algorithms for geodesics} (2013) \cite{Karney}. Karney presenterer en metode for å løse slike problemer. Python-biblioteket \textit{geographiclib} implementerer denne; funksjonen \kode{geodesic.Geodesic.WGS84.Inverse()} tar inn to punkter og løser for geodetisk avstand samt de to asimutene \cite{geographiclib} (se figur \ref{fig:inverse_problem}).
+Dette problemet blir kalt \textbf{Inverse Problem} i \textit{Algorithms for geodesics} (2013) \cite{Karney}. Karney presenterer en metode for å løse slike problemer. Python-biblioteket geographiclib implementerer denne; funksjonen \kode{geodesic.Geodesic.WGS84.Inverse()} tar inn to punkter og løser for geodetisk avstand samt de to asimutene \cite{geographiclib} (se figur \ref{fig:inverse_problem}).
 
 \begin{figure}
     \centering
     \includegraphics[width=0.75\textwidth]{img/angle_north.pdf}
     \caption{Koordinatene til $B$ og $C$ blir estimert ved hjelp av Google Maps. 
-    Koordinatene til målelokasjonen $A$ ble målt ved hjelp av Phyphox.
-    $\theta_1$ og $\theta_2$ er vinklene hhv. vinkel mellom spiret på Nidarosdomen og nord, og mellom Tyholttårnet og nord.}
+    Koordinatene til målelokasjonen $A$ ble målt ved hjelp av Phyphox \cite{phyphox}.
+    $\theta_1$ og $\theta_2$ er vinklene mellom hhv. spiret på Nidarosdomen og geografisk nord, og mellom Tyholttårnet og geografisk nord.}
     \label{fig:angle_north}
 \end{figure}
 
 \begin{figure}
     \centering
     \includegraphics[width=0.75\textwidth]{img/ellipsoidal_problem.pdf}
-    \caption{Vinkelen vi er ute etter er $\alpha_1$. Gitt to punkter på overflaten av den ellipsoidiske modellen av jordkloden gir algoritmen til Karney den geodetiske avstanden $s_{12}$ og de to asimutene $\alpha_1$ og $\alpha_2$.}
+    \caption{Vinkelen vi er ute etter er $\alpha_1$. Gitt to punkter på overflaten av den ellipsoidiske modellen av jordkloden gir algoritmen til Karney \cite{Karney} den geodetiske avstanden $s_{12}$ og de to asimutene $\alpha_1$ og $\alpha_2$.}
     \label{fig:inverse_problem}
 \end{figure}
