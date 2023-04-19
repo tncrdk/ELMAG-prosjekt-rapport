@@ -96,17 +96,17 @@ Finn asimuten $\alpha_1$ gitt to punkter på jordoverflaten $(\varphi_1, \lambda
 
 Dette problemet blir kalt \textbf{Inverse Problem} i \textit{Algorithms for geodesics} (2013) \cite{Karney}. Karney presenterer en metode for å løse slike problemer. Python-biblioteket geographiclib implementerer denne; funksjonen \kode{geodesic.Geodesic.WGS84.Inverse()} tar inn to punkter og løser for geodetisk avstand samt de to asimutene \cite{geographiclib}, se figur (\ref{fig:inverse_problem}).
 
-\begin{figure}
+\begin{figure}[ht]
     \centering
-    \includegraphics[width=0.75\textwidth]{img/angle_north.pdf}
+    \includegraphics[width=\textwidth, trim={0 100 0 0}, clip]{img/angle_north.pdf}
     \caption{
     Skisse av målelokasjon ($A$) og to referansepunkter ($B$ og $C$) samt vinkelene mellom disse og geografisk nord.}
     \label{fig:angle_north}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h!]
     \centering
-    \includegraphics[width=0.75\textwidth]{img/ellipsoidal_problem.pdf}
+    \includegraphics[width=\textwidth, trim={0 250 0 0}, clip]{img/ellipsoidal_problem.pdf}
         \caption{Skisse av en ellipsoidisk modell av jordkloden. Avstanden $s_{12}$ er den geodetiske avstanden mellom to punkter på overflaten. Hvert punkt har en tilhørende asimut ($\alpha$): vinkelen mellom meridianen og den geodetiske kurven.}
     \label{fig:inverse_problem}
 \end{figure}
