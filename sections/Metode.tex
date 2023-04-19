@@ -23,12 +23,21 @@ For å finne koordinatene til målelokasjonen ble Phyphox' verktøy for GPS-sens
 
 \subsubsection{Analyse av data}
 Rådata for magnetfeltet og koordinatene til målelokasjonen ble gruppert for målesett og person.
-Inklinasjonen ble bestemt ved bruke \eqref{eq:inclination} på hvert datasett, samt bruke funksjonene \kode{numpy.mean}, \kode{numpy.median} og \kode{sympy.stats.tstd} for å finne gjennomsnittet, medianen og standardavviket.
-Deretter ble vinkelen mellom referansepunkt og geografisk nord ($\theta$) regnet ut for hver person ved å bruke \kode{geodesic.Geodesic.WGS84.Inverse()} fra geographiclib-biblioteket.
+Inklinasjonen ble bestemt ved bruke \eqref{eq:inclination} på hvert datasett, samt bruke funksjonene 
+\href{https://numpy.org/doc/stable/reference/generated/numpy.mean.html#numpy.mean}{\kode{numpy.mean}}, 
+\href{https://numpy.org/doc/stable/reference/generated/numpy.median.html#numpy-median}{\kode{numpy.median}} og 
+\href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.tstd.html#scipy.stats.tstd}
+{\kode{sympy.stats.tstd}} for å finne gjennomsnittet, medianen og 
+standardavviket.
+Deretter ble vinkelen mellom referansepunkt og geografisk nord ($\theta$) regnet ut for hver person ved å 
+bruke \ref{}\kode{geodesic.Geodesic.WGS84.Inverse()} fra geographiclib-biblioteket.
 Innsatt i \eqref{eq:declination} gir dette sluttresultatet for hvert målesett.
-Til slutt ble alle dataene samlet i et målesett og analysert i sin helhet med metoden som beskrevet over. 
-Måledataene til Vemund for Nidarosdomen ble deretter filtrert ut og en ny analyse ble gjennomført.   
+Deretter ble alle dataene samlet i et målesett, og analysert i sin helhet med analysemetoden som ble brukt 
+for hvert enkelt datasett beskrevet over.
+Til slutt ble måledataene til Vemund for Nidarosdomen filtrert ut, på grunn stort avvik fra de andre 
+målesettene, og en ny analyse ble gjennomført.
 % hvilken metode
+% legge til referanse
  
 \begin{figure}
     \centering
