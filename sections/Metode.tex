@@ -26,8 +26,9 @@ Rådata for magnetfeltet og koordinatene til målelokasjonen ble gruppert for m�
 Inklinasjonen ble bestemt ved bruke \eqref{eq:inclination} på hvert datasett, samt bruke funksjonene \kode{numpy.mean}, \kode{numpy.median} og \kode{sympy.stats.tstd} for å finne gjennomsnittet, medianen og standardavviket.
 Deretter ble vinkelen mellom referansepunkt og geografisk nord ($\theta$) regnet ut for hver person ved å bruke \kode{geodesic.Geodesic.WGS84.Inverse()} fra geographiclib-biblioteket.
 Innsatt i \eqref{eq:declination} gir dette sluttresultatet for hvert målesett.
-Til slutt ble alle dataene samlet i et målesett og analysert i sin helhet med metoden som beskrevet over. Måledataene til Vemund for Nidarosdomen ble deretter filtret ut og en ny analyse ble gjennomført.   
-
+Til slutt ble alle dataene samlet i et målesett og analysert i sin helhet med metoden som beskrevet over. 
+Måledataene til Vemund for Nidarosdomen ble deretter filtrert ut og en ny analyse ble gjennomført.   
+% hvilken metode
  
 \begin{figure}
     \centering
