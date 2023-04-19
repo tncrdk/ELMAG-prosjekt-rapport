@@ -30,12 +30,19 @@ osv...? \textbf{Under den ene målingen når det kjørte en bil ved siden av må
     \item Værforhold - det var delvis overskyet, ingen sol
     \item flymodus, restart - hvordan påvirket dette resultatene?
 
-I vurderingen av resultet er det naturlig å sammeligne med data fra World Magnetic Model (ref. magnetic-declination). 
-Magnetisk deklinasjon for Trondheim (hentet 19. april 2023) er  
+Det er naturlig å sammeligne med verdiene den empiriske modellen World Magnetic Model (WMM) gir.
+Magnetisk deklinasjon for Trondheim (hentet 19. april 2023) er +4.63\textdegree. Inklinasjonen er 74.9\textdegree (se figur \ref{fig:WMM}). 
+\newline
+Det er verdt å merke seg at WMM opererer med positive vinkler \textit{fra} nord \textit{til} retningen på magnetfeltet. 
+Teorien, metoden og resultatet presentert i denne rapporten bruker positivt fortegn på vinkelen \textit{fra} magnetfeltet \textit{til} geografisk nord.
+Ved å definere deklinasjonen som vinkelen \textit{fra} geografisk nord \textit{til} retningen til magnetfeltet i et koordinatsystem med positiv vinkel med klokken sett ovenfra vil fortegnet på resultatene i rapporten stemme overens med fortegnet til WMM.  
+\par
+Fra figur \ref{fig:plot_declination} og tabell \ref{fig:tabell_deklinasjon} er det tydelig at målingene tyder på at den magnetiske misvisningen er mot vest. Den gjennomsnittlige målte deklinasjonen fra de filtrerte dataene er $-6.14$\textdegree\ med et standardavvik på $5.39$\textdegree.
+\par
+En potensiell systematisk feilkilde er at Phyphox' påståtte referansesystem i virkeligheten er noe rotert. Dette vil isåfall gi et resultat som er systematisk rotert. 
+Et forsøk som kan gjøres for å avkrefte/bekrefte dette er å sette mobiltelefonen i et kjent magnetfelt (for eksempel et uniformt magnetfelt generert av Helmholtz-spoler).
+Man burde så sammenligne resultatene for hver telefon.
 
-Telefonene kan ha et ulikt koordinatsystem enn det Phyphox oppgir. 
-Dette vil isåfall være en systematisk feil som påvirker alle målingene. 
-????? Dette kan være grunnen til at resultatet ligger  mot en ulik vinkel for hver telefon. 
 
 Det kan også hende at telefonene ikke har ligget helt i vater eller at de ikke har ligget parallelt med telefonholderen. Dette kan da gi feilmargin. For de måleseriene som har samme referansepunkt, er det liten variasjon mellom målingene for samme person. Trolig er det dermed ikke store feil som følge av plasseringen av telefonen i telefonholderen. 
 
