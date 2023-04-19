@@ -1,46 +1,28 @@
 \section{Diskusjon}
-
-- Hvor i smarttelefonen er sensoren plassert? \newline 
-- Hva kan gjøres forskjellig for å få mer nøyaktige resultater? - Hva kan endres til neste gang? \newline
-- Hvilke svakheter ligger i målingene? \newline
-- Er det noen målinger som skiller seg ut? Hvorfor? \newline
-- Er det nøyaktige resultater i forhold til andre type forsøk? \newline 
-- Hva har resultatene å bidra med til framtidige forsøk? \newline                                    
-- Bestem aksene (koordinatsystemet) til smarttelefonen. \textbf{se figur \ref{fig:telf_akser} }\newline 
-- Hva er oppløsningen til sensoren? \newline 
-- Er sensoren kalibrert? \newline
-- Er målingene stabile? Ser du variasjoner? Er de påvirket av temperatur, lading
-osv...? \textbf{Under den ene målingen når det kjørte en bil ved siden av måleapparatet, viste målingene en liten endring i dataene sammenlignet med de andre målingene. }\newline
-- Er resultatene reproduserbare etter en reboot/avstengning? \newline
-- Kan omgivelsene påvirke målingene? \newline                      
-- Kan du detektere lokale variasjoner? Hva kan forårsake disse variasjonene?  \newline
-- Avansert: Kan du oppdage variasjoner under døgnet? \newline
-- Avansert: Kan nordlys påvirke målingene? \newline 
-
-\noindent\textbf{Mulige ting som kan ha påvirket resultatene}:
-\begin{itemize}
-    \item Forskjellige mobiltelefoner som gir forskjellige data 
-    \item biler som kjører forbi
-    \item andre elektromagnetiske kilder i nærheten? 
-    \item trefoten kan ha vært ustødig
-    \item telefonholderen
-    \item vibrasjoner i bakken               
-    \item siktet til vateret, er dette nøyaktig nok?
-    \item Ble mobilen lagt nøyaktig nok i forhold til vateret?
-    \item Værforhold - det var delvis overskyet, ingen sol
-    \item flymodus, restart - hvordan påvirket dette resultatene?
-
-
-Telefonene kan ha et ulikt koordinatsystem enn det Phyphox oppgir. Dette vil da være en systematisk feil som påvirker alle målingene. ????? Det kan også være grunnen til at resultatene går mot en ulik vinkel for hver telefon. 
-
+Det er naturlig å sammeligne med verdiene den empiriske modellen World Magnetic Model (WMM) gir.
+Magnetisk deklinasjon for Trondheim (hentet 19. april 2023) er +4.63\textdegree. Inklinasjonen er 74.9\textdegree (se figur \ref{fig:WMM}). 
+\newline
+Det er verdt å merke seg at WMM opererer med positive vinkler \textit{fra} nord \textit{til} retningen på magnetfeltet. 
+Teorien, metoden og resultatet presentert i denne rapporten bruker positivt fortegn på vinkelen \textit{fra} magnetfeltet \textit{til} geografisk nord.
+Ved å definere deklinasjonen som vinkelen \textit{fra} geografisk nord \textit{til} retningen til magnetfeltet i et koordinatsystem med positiv vinkel med klokken sett ovenfra vil fortegnet på resultatene i rapporten stemme overens med fortegnet til WMM.  
+\par
+Fra figur \ref{fig:plot_declination} og tabell \ref{fig:tabell_deklinasjon} er det tydelig at målingene tyder på at den magnetiske misvisningen er mot vest. Den gjennomsnittlige målte deklinasjonen fra de filtrerte dataene er $-6.14$\textdegree\ med et standardavvik på $5.39$\textdegree.
+\par
+En potensiell systematisk feilkilde er at Phyphox' påståtte referansesystem i virkeligheten er noe rotert. Dette vil isåfall gi et resultat som er systematisk rotert. 
+Et forsøk som kan gjøres for å avkrefte/bekrefte dette er å sette mobiltelefonen i et kjent magnetfelt (for eksempel et tilnærmet uniformt magnetfelt generert av Helmholtz-spoler).
+Man burde så sammenligne resultatene for hver telefon.
+\par
+Målingene ble gjennomført 14. mars 2023 i tidsrommet 14:00-14:30.
+Man må gjøre flere målinger over flere dager og på ulike tidspunkter på døgnet for å kunne måle tidsvariasjonen i misvisningen. 
+\par
 Det kan også hende at telefonene ikke har ligget helt i vater eller at de ikke har ligget parallelt med telefonholderen. Dette kan da gi feilmargin. For de måleseriene som har samme referansepunkt, er det liten variasjon mellom målingene for samme person. Trolig er det dermed ikke store feil som følge av plasseringen av telefonen i telefonholderen. 
 
 Eksterne forstyrrelser var det i liten grad. I området rundt målingslokasjonen var det ingen store kilder av elektromagnetisk stråling. Dermed er det trolig liten endring i målingene som følge av eksterne kilder. 
 
-Å bruke et vater som siktemiddel gir ikke en stor grad av presisjon og inneholder et menneskelig element. Dermed er det trolig at en ville fått mer nøyaktig resultater med et mer presist siktemiddel
-
-\end{itemize}
-
-
-
- 
+Fra resultatene ser man også at det er et klart skille mellom målingene med Nidarosdomen som referansepunkt, og med Tyholttårnet som referansepunkt. Dette tyder på at det har vært en forskjell i oppsettet mellom de to orienteringene, som delvis 
+kan forklares med feil når under siktet. Dersom det ble bommet på referansepunktet med $N$ grader ser en ut fra likning 
+\eqref{eq:Deklinasjon} at feilen i deklinasjon også blir $N$ grader. Avviket mellom de ulike måleretningen overskrider 
+derimot 10 grader i noen tilfeller, noe som er litt mye til å bare kunne beskrives med feil i siktet. På den andre siden er 
+det få andre usikkerhetsmoment som er avhengig av orienteringen til oppsettet. En mulig forklaring, som må undersøkes videre 
+for å ha noe hold, er hvorvidt Phyphox blir bedre kalibrert desto flere målinger en gjør. Siden nidarosdomen var den første måleserien som ble foretatt, kan det ha hatt en effekt.
+Utover dette må det gjøres flere undersøkelser.

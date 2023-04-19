@@ -1,9 +1,8 @@
 \section{Teori}
 Jorda er omsluttet av et magnetfelt, som kan tilnærmes med en 
-dipolorientert omtrent i flukt med rotasjonsaksen. Jordas magnetiske sørpol 
+dipol orientert omtrent i flukt med rotasjonsaksen. Jordas magnetiske sørpol 
 befinner seg i nærheten av jordas geografiske nordpol, og magnetisk nordpol 
-befinner seg i nærheten av geografisk sørpol. Presiseringen "i nærheten av" 
-er således viktig i forbindelse med dette prosjektet, ettersom dette gir 
+befinner seg i nærheten av geografisk sørpol. Presiseringen "i nærheten av" er således viktig i forbindelse med dette prosjektet, ettersom dette gir 
 opphav til fenomentet deklinasjon. Et kompass vil peke mot den magnetiske sørpolen og ikke mot den geografiske nordpolen.
 Denne misvisningen kalles deklinasjon og blir oppgitt som vinkelen mellom 
 geografisk nord og retningen på magnetfeltet. På grunn av asymmetrien til 
@@ -21,7 +20,7 @@ Phyphox er en app man kan laste ned på telefonen sin, som lar brukeren
 bruke telefonen sine sensorer til å foreta ulike målinger. Deriblant finnes 
 det et magnetometer som lar en måle magnetfelt-styrken langs alle 
 koordinataksene til telefonen, i tillegg til absolutt feltstyrke. 
-Se https://phyphox.org/ \cite{phyphox} for mer informasjon om sensorer og koordinatsystemet til telefonen.
+\cite{phyphox}
 
 \subsection{Hvordan måle inklinasjonen}
 For å måle inklinasjonen, trenger en kun å finne magnetfelt-styrken i horisontal-
@@ -94,19 +93,11 @@ Problemet man står ovenfor da er:
 Finn asimuten $\alpha_1$ gitt to punkter på jordoverflaten $(\varphi_1, \lambda_1, )$ og $(\varphi_2, \lambda_2)$, hvor $\varphi$ er breddegradene og $\lambda$ er lengdegradene. 
 \\
 
-Dette problemet blir kalt \textbf{Inverse Problem} i \textit{Algorithms for geodesics} (2013) \cite{Karney}. Karney presenterer en metode for å løse slike problemer. Python-biblioteket geographiclib implementerer denne; funksjonen \kode{geodesic.Geodesic.WGS84.Inverse()} tar inn to punkter og løser for geodetisk avstand samt de to asimutene \cite{geographiclib} (se figur \ref{fig:inverse_problem}).
+Dette problemet blir kalt \textbf{Inverse Problem} i \textit{Algorithms for geodesics} (2013) \cite{Karney}. Karney presenterer en metode for å løse slike problemer. Python-biblioteket geographiclib implementerer denne; funksjonen \kode{geodesic.Geodesic.WGS84.Inverse()} tar inn to punkter og løser for geodetisk avstand samt de to asimutene \cite{geographiclib}, se figur (\ref{fig:inverse_problem}).
 
-\begin{figure}
+\begin{figure}[h!]
     \centering
-    \includegraphics[width=0.75\textwidth]{img/angle_north.pdf}
-    \caption{
-    Skisse av målelokasjon ($A$) og to referansepunkter ($B$ og $C$) samt vinkelene mellom disse og geografisk nord.}
-    \label{fig:angle_north}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.75\textwidth]{img/ellipsoidal_problem.pdf}
+    \includegraphics[width=\textwidth, trim={0 250 0 0}, clip]{img/ellipsoidal_problem.pdf}
         \caption{Skisse av en ellipsoidisk modell av jordkloden. Avstanden $s_{12}$ er den geodetiske avstanden mellom to punkter på overflaten. Hvert punkt har en tilhørende asimut ($\alpha$): vinkelen mellom meridianen og den geodetiske kurven.}
     \label{fig:inverse_problem}
 \end{figure}
