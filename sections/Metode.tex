@@ -1,32 +1,59 @@
 \section{Metode}
-\noindent\textbf{Utstyr}:
+\subsection{Utstyr}
 \begin{itemize}
-    \item Telefon
+    \item Telefoner med Phyphox
     \item Telefonholder
     \item Trefot
     \item Vater
 \end{itemize}
+Det ble foretatt målinger med Djupviks iPhone SE, Jakobsens Samsung Galaxy A40 og Aakres iPhone 13. 
 
-\subsection{Valg av referansepunkter og målelokasjon}
-Det ble gjort målinger ved 2 referansepunkt for å bedre datagrunnlag. Koordinatene til $B$ og $C$ blir estimert ved hjelp av Google Maps. Koordinatene til målelokasjonen $A$ ble målt ved hjelp av Phyphox \cite{phyphox}. $\theta_1$ og $\theta_2$ er vinklene mellom hhv. spiret på Nidarosdomen og geografisk nord, og mellom Tyholttårnet og geografisk nord.
+\subsection{Referansepunkter og målelokasjon}
+Det ble gjort målinger med 2 ulike referansepunkt for å få et større datagrunnlag. De valgte referansepunktene var spiret til Nidarosdomen og Tyholttårnet fordi disse var lette å sikte seg inn på i tillegg til å være et godt stykke unna målelokasjonen (se figur \ref{fig:angle_north}). 
+Målingene ble utført på vestre siden av broen som krysser Eidsvolls gate langs Øvre alle. 
+
+Koordinatene til referansepunktene ble bestemt med å klikke på punktene på Google Maps (satelitt-bilder). 
+Koordinatene til målelokasjonen ble målt ved hjelp av Phyphox' verktøy for lokasjonsmåling \cite{phyphox}. Telefonens GPS-sensor ble kalibrert ved at telefonen ble flyttet rundt målelokasjonen. 
+Deretter ble telefonen plassert i ro i telefonholderen. 
+Lokasjonsdata ble eksportert i \kode{.csv}-format.
+
 
 
 \subsection{Måling av magnetfelt og oppsett}
-En trefot ble brukt med en plattform for telefonene, hvor telefonene ble plassert i en telefonholder. For å gi riktig retning på telefonene, ble det plassert ett vater langsmed telefonholderen \ref{fig:med_vater}. Referansepunktene som ble brukt Vateret ble så brukt som siktemiddel slik at telefonholderen, og dermed telefonen lå i retning av referansepunktet som ble siktet på. Deretter ble plattformen justert slik at den var horisontal ved hjelp av et vater.
+En trefot med en plattform for telefonene ble brukt, hvor telefonene ble plassert i en telefonholder. For å gi riktig retning på telefonene, ble det plassert ett vater langsmed telefonholderen (se figur \ref{fig:med_vater}). Vateret ble så brukt som siktemiddel slik at telefonholderen, og dermed $-x$-aksen til telefonens referansesystem \ref{fig:telf_akser}, lå i retning av referansepunktet. Deretter ble plattformens inklinasjon justert slik at telefonen la horisontalt ved hjelp av vateret.
 
-Før hver måling ble telefonene kalibrert ved å spinne de rundt. Deretter ble telefonene plassert i telefonholderen og ble liggende der en tid til målingene var stabile. Dataene ble så eksportert. 
+Før hver måling ble telefonene kalibrert ved å rotere den rundt alle tre aksene. Deretter ble telefonene plassert i telefonholderen og ble liggende der til målingene (rundt $30$ sekunder). Dataene ble så eksportert til \kode{.csv}-format. 
 
-Det ble gjort måling om flymodus og restarting av telefonene ville ha effekt. Disse målingen ble gjennomført med telefonene pekende mot Tyholttårnet. Målingene med flymodus ble gjennomført ved at telefonene ble satt i flymodus, kalibrert og dermed satt i telefonholderen. Målingene med restarting ble gjennomført ved at telefonene ble restartet, kalibrert og så plassert i telefonholderen.
+Måling med Nidarosdomen som referansepunkt ble gjennomført først. Det ble gjennomført et målesett (en måling med hver telefon). Deretter ble plattformen stilt inn på nytt med Tyholttårnet som referansepunkt. Det ble gjort målinger med flymodus aktivert og etter å ha gjort en omstart av telefonene for å sjekke om dette kunne ha innvirkning på resultatene. Målingene med flymodus ble gjennomført ved at telefonene ble satt i flymodus, kalibrert og dermed satt i telefonholderen. Målingene etter omstart ble gjennomført ved at telefonene ble startet på nytt, kalibrert og så plassert i telefonholderen.
 
-For å finne posisjonen til målepunktet ble phyphox benyttet. Da med «Location» som måling for GPS-koordinater. Telefonene ble kalibrert ved at de ble beveget noen meter i ulike retninger før selve målingen ble utført i telefonholderen. Målingene ble utført på vestre siden av broen som krysser Eidsvolls gate langs Øvre alle. 
-For å finne koordinater for Nidarosdomen og Tyholttårnet ble Google Maps brukt.
-Dataene ble så analysert i Python ved hjelp av teorien beskrevet ovenfor, for å finne gjennomsnittsverdi, median og standardavvik for deklinasjonen og inklinasjonen for hver måleserie.     
-
+\subsubsection{Analyse av data}
+Rådata for magnetfeltet og koordinatene til målelokasjonen ble gruppert for målesett og person.
+Inklinasjonen ble bestemt ved bruke \eqref{eq:inclination} på hvert datasett, samt bruke funksjonene 
+\href{https://numpy.org/doc/stable/reference/generated/numpy.mean.html#numpy.mean}{\kode{numpy.mean}}, 
+\href{https://numpy.org/doc/stable/reference/generated/numpy.median.html#numpy-median}{\kode{numpy.median}} og 
+\href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.tstd.html#scipy.stats.tstd}
+{\kode{sympy.stats.tstd}} for å finne gjennomsnittet, medianen og 
+standardavviket.
+Deretter ble vinkelen mellom referansepunkt og geografisk nord ($\theta$) regnet ut for hver person ved å 
+bruke \kode{geodesic.Geodesic.WGS84.Inverse()} fra geographiclib-biblioteket.
+Innsatt i \eqref{eq:Deklinasjon} gir dette sluttresultatet for hvert målesett.
+Deretter ble alle dataene samlet i et målesett, og analysert i sin helhet med analysemetoden som ble brukt 
+for hvert enkelt datasett beskrevet over.
+Til slutt ble måledataene for Iphone 13 for Nidarosdomen filtrert ut, på grunn stort avvik fra de andre 
+målesettene, og en ny analyse ble gjennomført.
+% hvilken metode
+% legge til referanse
  
 \begin{figure}
     \centering
     \includegraphics[width=0.45\textwidth]{img/Plattform med vater.pdf}                 
-    \caption{Figuren viser oppsettet for måling før telefonen ble plassert i telefonholderen. Vateret er siktemiddel for referansepunktet.
-        }
+    \caption{Figuren viser oppsettet for måling før telefonen ble plassert i telefonholderen. Vateret er siktemiddel for oppsettet.}
     \label{fig:med_vater}
-\end{figure} 
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.65\textwidth]{img/Plattform med telefoni.pdf}
+    \caption{Skisse av telefon under måling. Skissen viser også koordinatsystemet, angitt med $\hat{x, y, z}$ som benyttes til analyse.}
+    \label{fig:telf_akser}
+\end{figure}
