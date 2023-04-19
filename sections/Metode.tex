@@ -14,19 +14,21 @@ Målingene ble gjort rett utenfor hovedbygningen til NTNU i starten av broen på
 
 
 VARIANT 2:
-En trefot ble brukt som plattform for telefonene, hvor telefonene ble plassert i en telefonholder. For å gi riktig retning på telefonene, ble det plassert ett vater langsmed telefonholderen \ref{fig:med_vater}. Vateret ble så brukt som siktemiddel slik at telefonholderen, og dermed telefonen lå i retning av objektet som ble siktet på . Deretter ble plattformen justert slik at den var horisontal ved hjelp av et vater.
+En trefot ble brukt som plattform for telefonene, hvor telefonene ble plassert i en telefonholder. For å gi riktig retning på telefonene, ble det plassert ett vater langsmed telefonholderen \ref{fig:med_vater}. Vateret ble så brukt som siktemiddel slik at telefonholderen, og dermed telefonen lå i retning av referansepunktet som ble siktet på. Deretter ble plattformen justert slik at den var horisontal ved hjelp av et vater.
 
 Før hver måling ble telefonene «kalibrert» ved å spinne de rundt. Deretter ble telefonene plassert i telefonholderen og ble liggende der en tid til målingene var stabile. Dataene ble så eksportert. 
 
 Det ble gjort måling om flymodus og restarting av telefonene ville ha effekt. Disse målingen ble gjennomført med telefonene pekende mot Tyholttårnet. Målingene med flymodus ble gjennomført ved at telefonene ble satt i flymodus, kalibrert og dermed satt i telefonholderen. Målingene med restarting ble gjennomført ved at telefonene ble restartet, kalibrert og så plassert i telefonholderen.
-For å finne posisjonen ble phyphox benyttet. Da med «Location», for GPS koordinater. Telefonene ble kalibrert ved at de ble beveget noen meter i ulike retninger før selve målingen ble utført i telefonholderen. Målingene ble utført på vestre siden av broen som krysser Eidsvolls gate langs Øvre alle. 
-Dataene ble så analysert i Python ved hjelp av teorien beskrevet ovenfor, for å finne gjennomsnittsverdi, median og standardavvik for deklinasjonen og inklinasjonen.   
+
+For å finne posisjonen til målepunktet ble phyphox benyttet. Da med «Location», for GPS koordinater. Telefonene ble kalibrert ved at de ble beveget noen meter i ulike retninger før selve målingen ble utført i telefonholderen. Målingene ble utført på vestre siden av broen som krysser Eidsvolls gate langs Øvre alle. 
+For å finne koordinater for Nidarosdomen og Tyholttårnet ble Google Maps brukt.
+Dataene ble så analysert i Python ved hjelp av teorien beskrevet ovenfor, for å finne gjennomsnittsverdi, median og standardavvik for deklinasjonen og inklinasjonen.     
 
  
 \begin{figure}
     \centering
     \includegraphics[width=0.45\textwidth]{img/Plattform med vater.pdf}                 
-    \caption{Figuren viser oppsettet mens det ble stilt inn mot riktig retning. Et vater ble brukt for å sikte inn på Nidarosdomen og Tyholttårnet og viste i hvilken retning mobilen skulle ligge. \textbf{Kan siste setning fjernes?} 
+    \caption{Figuren viser oppsettet for måling før telefonen ble plassert i telefonholderen. Vateret er siktemiddel for referansepunktet.
         }
     \label{fig:med_vater}
 \end{figure}
