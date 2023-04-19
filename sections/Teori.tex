@@ -27,22 +27,26 @@ Se https://phyphox.org/ \cite{phyphox} for mer informasjon om sensorer og koordi
 For å måle inklinasjonen, trenger en kun å finne magnetfelt-styrken i horisontal-
 planet og i vertikal retning. Da blir formelen for inklinasjonen 
 \begin{equation}
-    \gamma = \arctan \frac{-B_z}{B_H}
+    \gamma = \arctan \frac{-B_z}{B_H} 
 \end{equation}
-hvor $B_z$ er feltstyrken i z-retning, og $B_H$ er feltstyrken i horisontalplanet. 
-Minustegnet foran $B_z$ kommer av at $B_z$ vil være en negativ størrelse, mens inklinasjon blir oppgitt som en positiv størrelse. Når en foretar målingene ved hjelp av 
-phyphox får man derimot ikke feltstyrken i planet eksplisitt, men i komponentform i 
-x- og y-retning. Formelen som kommer til å brukes blir dermed
+hvor $B_z$ er feltstyrken i z-retning, og $B_H$ er feltstyrken i horisontalplanet, som kan 
+uttrykkes med $B_H = \sqrt{B_x^2 + B_y^2}$. $B_x$ og $B_y$ er henholdsvis magnetfeltet i x-retning
+og y-retning.
+Minustegnet foran $B_z$ kommer av at $B_z$ vil være en negativ størrelse, ettersom magnetfeltet peker inn mot 
+jorden, mens 
+positiv z-akse står normalt opp fra horisontalplanet. Inklinasjon derimot blir oppgitt 
+som en positiv størrelse.
+Inklinasjonen blir dermed gitt ved
 \begin{equation}
-    \gamma = \arctan{ \frac{-B_z}{\sqrt{B_x^2 + B_y^2}} }
+    \gamma = \arctan \frac{-B_z}{\sqrt{B_x^2 + B_y^2}} 
 \end{equation}
-hvor $B_x$ og $B_y$ er henholdsvis magnetfeltstyrken i x- og y-retning.
 
 \subsection{Hvordan måle deklinasjonen}
 For å finne ut deklinasjonen kreves det at man vet hvor både magnetisk sørpol og 
 geografisk nordpol er, for så å kunne regne ut vinkelen mellom dem. For å oppnå dette 
-kan det benyttes et mellomsteg, et fast referansepunkt, som man relaterer både 
-magnetfeltet og geografisk nord til. Hvis man så finner vinkelen mellom magnetfeltet 
+kan det benyttes et mellomsteg, hvor en velger et fast referansepunkt som er enkelt å lokalisere. Dette punktet kan 
+en så relatere både magnetfeltet og geografisk nord til. 
+Hvis man finner vinkelen mellom magnetfeltet 
 og referansepunktet, og geografisk nord og referansepunktet, kan deklinasjonen 
 regnes ut basert på dette. Gitt vinklene ovenfor blir deklinasjonen
 \begin{equation}
@@ -52,19 +56,24 @@ regnes ut basert på dette. Gitt vinklene ovenfor blir deklinasjonen
 hvor $\beta$ er vinkelen mellom referansepunktet og magnetfeltet, og $\theta$ er 
 vinkelen mellom referansepunktet og geografisk nord.
 
-\subsubsection{Vinkel mellom referansepunkt og magnetfelt, burde kanskje skrives om}
-Vinkelen mellom referansepunktet og magnetfeltet kan bli funnet ved å sette opp 
-telefonen sitt koordinatsystem slik at vinkelen mellom det og referansepunktet er 
-kjent når en tar målingene. Gitt dette oppsettet blir vinkelen mellom magnetfeltet 
-og koordinatsystemet
+\subsubsection{Vinkel mellom referansepunkt og magnetfelt}
+Vinkelen mellom referansepunktet og magnetfeltet kan bli funnet ved å først bestemme et koordinatsystem. I dette 
+koordinatsystemet finner en magnetfeltsvektoren og posisjonsvektoren til referansepunktet, og dermed også vinklene 
+til vektorene i forhold til x-aksen til koordinatsystemet. Gitt dette oppsettet blir vinkelen mellom x-aksen og 
+magnetfeltet 
 \begin{equation}
     \phi = \arctan \frac{B_y}{B_x}
 \end{equation}
-og dermed mellom referansepunktet og magnetfeltet
+Vinkelen mellom magnetfeltet og referansepunktet blir dermed
 \begin{equation}
     \beta = \psi - \phi = \psi - \arctan \frac{B_y}{B_x}
 \end{equation}
-hvor $\psi$ er vinkelen mellom referansepunktet og koordinatsystemet.
+hvor $\psi$ er vinkelen mellom referansepunktet og x-aksen.
+
+Formelen for deklinasjonen kan dermed skrives om til
+\begin{equation}
+    \alpha = \psi - \arctan \frac{B_y}{B_x} - \theta
+\end{equation}
 
 \subsubsection{Koordinater til referansepunkt og målelokasjon}
 Metoden som brukes for å regne ut vinkelen mellom referansepunktet og geografisk nord ($\beta$ i ligning \eqref{eq:deklinasjon}) krever at man kjenner koordinatene til disse. Dette burde helst bli gjort ved hjelp av GPS. Metode-delen av rapporten beskriver hvordan dette ble gjort ved hjelp av telefonens GPS-sensor for målelokasjonen samt Google Maps for referansepunktene.
