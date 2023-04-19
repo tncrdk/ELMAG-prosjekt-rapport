@@ -1,5 +1,5 @@
 \section{Metode}
-\subsection{Utstyr}
+\subsection*{Utstyr}
 \begin{itemize}
     \item Telefoner med Phyphox
     \item Telefonholder
@@ -13,11 +13,17 @@ Det ble gjort målinger med 2 ulike referansepunkt for å få et større datagru
 Målingene ble utført på vestre siden av broen som krysser Eidsvolls gate langs Øvre alle. 
 
 Koordinatene til referansepunktene ble bestemt med å klikke på punktene på Google Maps (satelitt-bilder). 
-Koordinatene til målelokasjonen ble målt ved hjelp av Phyphox' verktøy for lokasjonsmåling \cite{phyphox}. Telefonens GPS-sensor ble kalibrert ved at telefonen ble flyttet rundt målelokasjonen. 
+Koordinatene til målelokasjonen ble målt ved hjelp av phyphox' verktøy for lokasjonsmåling \cite{phyphox}. Telefonens GPS-sensor ble kalibrert ved at telefonen ble flyttet rundt målelokasjonen. 
 Deretter ble telefonen plassert i ro i telefonholderen. 
 Lokasjonsdata ble eksportert i \kode{.csv}-format.
 
-
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.66\textwidth, trim={0 100 0 0}, clip]{img/angle_north.pdf}
+    \caption{
+    Skisse av målelokasjon ($A$) og to referansepunkter ($B$ og $C$) samt vinkelene mellom disse og geografisk nord.}
+    \label{fig:angle_north}
+\end{figure}
 
 \subsection{Måling av magnetfelt og oppsett}
 En trefot med en plattform for telefonene ble brukt, hvor telefonene ble plassert i en telefonholder. For å gi riktig retning på telefonene, ble det plassert ett vater langsmed telefonholderen (se figur \ref{fig:med_vater}). Vateret ble så brukt som siktemiddel slik at telefonholderen, og dermed $-x$-aksen til telefonens referansesystem \ref{fig:telf_akser}, lå i retning av referansepunktet. Vi får da at $\psi = -180$\textdegree\ i ligning \eqref{eq:Deklinasjon}. Deretter ble plattformens inklinasjon justert slik at telefonen la horisontalt ved hjelp av vateret.
@@ -28,19 +34,17 @@ Måling med Nidarosdomen som referansepunkt ble gjennomført først. Det ble gje
 
 
 
-
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.33\textwidth]{img/Plattform med vater.pdf}                 
+\begin{subfigure}{.47\textwidth}
+    \includegraphics[width=\textwidth]{img/Plattform med vater.pdf}
     \caption{Figuren viser oppsettet for måling før telefonen ble plassert i telefonholderen. Vateret er siktemiddel for oppsettet.}
     \label{fig:med_vater}
-\end{figure}
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.33\textwidth]{img/Plattform med telefoni.pdf}
+\end{subfigure}\hfill\begin{subfigure}{.47\textwidth}
+    \includegraphics[width=\textwidth]{img/Plattform med telefoni.pdf}
     \caption{Skisse av telefon under måling. Skissen viser også koordinatsystemet, angitt med $\hat{x}, \hat{y}, \hat{z}$, som benyttes til analysen.}
     \label{fig:telf_akser}
+\end{subfigure}
 \end{figure}
 
 
