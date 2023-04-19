@@ -35,8 +35,8 @@ Inklinasjonen ble bestemt ved bruke \eqref{eq:inclination} på hvert datasett, s
 {\kode{sympy.stats.tstd}} for å finne gjennomsnittet, medianen og 
 standardavviket.
 Deretter ble vinkelen mellom referansepunkt og geografisk nord ($\theta$) regnet ut for hver person ved å 
-bruke \ref{}\kode{geodesic.Geodesic.WGS84.Inverse()} fra geographiclib-biblioteket.
-Innsatt i \eqref{eq:declination} gir dette sluttresultatet for hvert målesett.
+bruke \kode{geodesic.Geodesic.WGS84.Inverse()} fra geographiclib-biblioteket.
+Innsatt i \eqref{eq:Deklinasjon} gir dette sluttresultatet for hvert målesett.
 Deretter ble alle dataene samlet i et målesett, og analysert i sin helhet med analysemetoden som ble brukt 
 for hvert enkelt datasett beskrevet over.
 Til slutt ble måledataene for Iphone 13 for Nidarosdomen filtrert ut, på grunn stort avvik fra de andre 
