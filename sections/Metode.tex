@@ -15,12 +15,18 @@ Det ble gjort målinger med 2 ulike referansepunkt for å bedre datagrunnlag. De
 \subsection{Måling av magnetfelt og oppsett}
 En trefot med en plattform for telefonene ble brukt, hvor telefonene ble plassert i en telefonholder. For å gi riktig retning på telefonene, ble det plassert ett vater langsmed telefonholderen \ref{fig:med_vater}. Vateret ble så brukt som siktemiddel slik at telefonholderen, og dermed telefonen lå i retning av referansepunktet. Deretter ble plattformen justert slik at den var horisontal ved hjelp av et vater.
 
-Før hver måling ble telefonene kalibrert ved å spinne de rundt. Deretter ble telefonene plassert i telefonholderen og ble liggende der en tid til målingene var stabile. Dataene ble så eksportert. 
+Før hver måling ble telefonene kalibrert ved å rotere de rundt alle tre aksene. Deretter ble telefonene plassert i telefonholderen og ble liggende der til målingene (rundt $30$ sekunder). Dataene ble så eksportert til \kode{.csv}-format. 
 
-Måling med Nidarosdomen som referansepunkt ble gjennomført først. Detble kun gjennomført en måleserie. Deretter ble plattformen stilt inn på nytt, med Tyholttårnet som referansepunkt. Det ble gjort måling om flymodus og restarting av telefonene ville ha effekt. Målingene med flymodus ble gjennomført ved at telefonene ble satt i flymodus, kalibrert og dermed satt i telefonholderen. Målingene med restarting ble gjennomført ved at telefonene ble restartet, kalibrert og så plassert i telefonholderen.
+Måling med Nidarosdomen som referansepunkt ble gjennomført først. Det ble gjennomført et målesett (en måling med hver telefon). Deretter ble plattformen stilt inn på nytt med Tyholttårnet som referansepunkt. Det ble gjort målinger med flymodus aktivert og etter å ha gjort en omstart av telefonene for å sjekke om dette kunne ha innvirkning på resultatene. Målingene med flymodus ble gjennomført ved at telefonene ble satt i flymodus, kalibrert og dermed satt i telefonholderen. Målingene etter omstart ble gjennomført ved at telefonene ble startet på nytt, kalibrert og så plassert i telefonholderen.
 
-For å finne posisjonen til målepunktet ble Phyphox benyttet. Da med «Location» som måling for GPS-koordinater. Telefonene ble kalibrert ved at de ble beveget noen meter i ulike retninger før selve målingen ble utført i telefonholderen. 
-Dataene ble så analysert i Python ved hjelp av teorien beskrevet ovenfor, for å finne gjennomsnittsverdi, median og standardavvik for deklinasjonen og inklinasjonen for hver måleserie.     
+For å finne koordinatene til målelokasjonen ble Phyphox' verktøy for GPS-sensoren til mobilen benyttet. GPS-sensoren ble kalibrert ved at de ble flyttet noen meter i ulike retninger før selve målingen ble utført i telefonholderen. Lokasjonsdataene ble eksportert i \kode{.csv}-format.
+
+\subsubsection{Analyse av data}
+Rådata for magnetfeltet og koordinatene til målelokasjonen ble gruppert for målesett og person.
+Inklinasjonen ble bestemt ved bruke \eqref{eq:inclination} på hvert datasett, samt bruke funksjonene \kode{numpy.mean}, \kode{numpy.median} og \kode{sympy.stats.tstd} for å finne gjennomsnittet, medianen og standardavviket.
+Deretter ble vinkelen mellom referansepunkt og geografisk nord ($\theta$) regnet ut for hver person ved å bruke \kode{geodesic.Geodesic.WGS84.Inverse()} fra geographiclib-biblioteket.
+Innsatt i \eqref{eq:declination} gir dette sluttresultatet for hvert målesett.
+Til slutt ble alle dataene samlet i et målesett og analysert i sin helhet med metoden som beskrevet over. Måledataene til Vemund for Nidarosdomen ble deretter filtret ut og en ny analyse ble gjennomført.   
 
  
 \begin{figure}
